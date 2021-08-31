@@ -6,11 +6,27 @@ class Caixa
 {
     protected $tipo_conta;
 
+    /**
+     * __contruct
+     *
+     * inicia a instancia da classe informando qual o
+     * tipo de conta que será usada
+     *
+     * @param [object] $tipo_conta
+     */
     public function __construct($tipo_conta)
     {
         $this->tipo_conta = $tipo_conta;
     }
 
+    /**
+     * deposito
+     * Realiza o deposito na conta iniciada
+     * e valida se o valor informado esta correto
+     *
+     * @param [float] $valor
+     * @return void
+     */
     public function deposito($valor)
     {
         try {
@@ -28,6 +44,16 @@ class Caixa
         }
     }
 
+    /**
+     * saque
+     * metodo faz a retirada de valor do saldo da conta
+     * validado o valor informado esta correto
+     * verificando se não ultrapassa o limite
+     * e se a conta tem o valor solicitado
+     *
+     * @param [float] $valor
+     * @return void
+     */
     public function saque($valor)
     {
         try {
@@ -61,6 +87,17 @@ class Caixa
         }
     }
 
+    /**
+     * transferencia
+     * Metodo realiza a transferencia de biteris da conta inicial
+     * para a conta de destino
+     * validado o valor informado esta correto
+     * validando se a conta possui saldo
+     *
+     * @param [float] $valor
+     * @param [object] $conta_destino
+     * @return void
+     */
     public function transferencia($valor, $conta_destino)
     {
         try {
@@ -82,6 +119,16 @@ class Caixa
         }
     }
 
+    /**
+     * exibirSaldo
+     * Metodo exibe as informações da conta
+     *
+     * Numero da Conta:
+     * Tipo de Conta:
+     * Saldo:
+     *
+     * @return void
+     */
     public function exibirSaldo()
     {
         echo $this->tipo_conta->exibirDadosConta();
